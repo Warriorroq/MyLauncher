@@ -15,30 +15,19 @@ namespace Launcher
     public partial class MainMenu : Form
     {
         private Form _loginForm;
-        private DownLoadManager _loadManager;
+        private GameManager _loadManager;
+        private Account _account;
         public MainMenu(Form loginForm)
         {
             _loginForm = loginForm;
-            _loadManager = new DownLoadManager();
+            _loadManager = new GameManager();
             InitializeComponent();
-            CreateGameEnterBtn();
         }
-        private void CreateGameEnterBtn()
+        public void ConfirmAccount(Account account)
         {
-            for (int i = 0; i < _loadManager.gamesFolder.Length; i++)
-            {
-                var name = _loadManager.gamesFolder[i].Name;
-                var game = _loadManager.gamesFolder[i].GetFiles($"{name}.*")[0];
-                var btn = new Button()
-                {
-                    Width = 100,
-                    Height = 60,
-                    Location = new Point(60, i * 120 + 60),
-                    Text = game.Name,
-                };
-                btn.Click += ((s, e) => Process.Start(game.FullName));
-                Controls.Add(btn);
-            }
+            _account = account;
+            _loadManager.CreateGameEnterBtns().ForEach(x => Controls.Add(x));
+            _loadManager.CreateAccountDirectory(_account);
         }
     }
 }

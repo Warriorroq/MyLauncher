@@ -1,15 +1,15 @@
 ﻿
 namespace Launcher
 {
-    partial class LoginForm
+    partial class RegisterAccount
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -24,67 +24,66 @@ namespace Launcher
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.sumbitRegistration = new System.Windows.Forms.Button();
-            this.password = new System.Windows.Forms.TextBox();
             this.login = new System.Windows.Forms.TextBox();
+            this.password = new System.Windows.Forms.TextBox();
+            this.sumbitRegistration = new System.Windows.Forms.Button();
             this.buttonCreateAccount = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
+            // login
+            // 
+            this.login.Location = new System.Drawing.Point(70, 90);
+            this.login.Name = "login";
+            this.login.Size = new System.Drawing.Size(191, 23);
+            this.login.TabIndex = 3;
+            this.login.Text = "new login:";
+            this.login.DoubleClick += new System.EventHandler(this.login_DoubleClick);
+            // 
+            // password
+            // 
+            this.password.Location = new System.Drawing.Point(70, 144);
+            this.password.Name = "password";
+            this.password.Size = new System.Drawing.Size(191, 23);
+            this.password.TabIndex = 4;
+            this.password.Text = "Password:";
+            this.password.DoubleClick += new System.EventHandler(this.password_DoubleClick);
+            // 
             // sumbitRegistration
             // 
-            this.sumbitRegistration.Location = new System.Drawing.Point(277, 297);
+            this.sumbitRegistration.Location = new System.Drawing.Point(12, 384);
             this.sumbitRegistration.Name = "sumbitRegistration";
             this.sumbitRegistration.Size = new System.Drawing.Size(191, 54);
-            this.sumbitRegistration.TabIndex = 0;
+            this.sumbitRegistration.TabIndex = 5;
             this.sumbitRegistration.Text = "Sumbit";
             this.sumbitRegistration.UseVisualStyleBackColor = true;
             this.sumbitRegistration.Click += new System.EventHandler(this.sumbitRegistration_Click);
             // 
-            // password
-            // 
-            this.password.Location = new System.Drawing.Point(277, 238);
-            this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(191, 23);
-            this.password.TabIndex = 1;
-            this.password.Text = "Password:";
-            this.password.DoubleClick += new System.EventHandler(this.password_DoubleClick);
-            // 
-            // login
-            // 
-            this.login.Location = new System.Drawing.Point(277, 180);
-            this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(191, 23);
-            this.login.TabIndex = 2;
-            this.login.Text = "Login:";
-            this.login.DoubleClick += new System.EventHandler(this.login_DoubleClick);
-            // 
             // buttonCreateAccount
             // 
-            this.buttonCreateAccount.Location = new System.Drawing.Point(597, 384);
+            this.buttonCreateAccount.Location = new System.Drawing.Point(70, 204);
             this.buttonCreateAccount.Name = "buttonCreateAccount";
             this.buttonCreateAccount.Size = new System.Drawing.Size(191, 54);
-            this.buttonCreateAccount.TabIndex = 3;
+            this.buttonCreateAccount.TabIndex = 6;
             this.buttonCreateAccount.Text = "CreateAccount";
             this.buttonCreateAccount.UseVisualStyleBackColor = true;
             this.buttonCreateAccount.Click += new System.EventHandler(this.buttonCreateAccount_Click);
             // 
-            // LoginForm
+            // RegisterAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(344, 450);
             this.Controls.Add(this.buttonCreateAccount);
-            this.Controls.Add(this.login);
-            this.Controls.Add(this.password);
             this.Controls.Add(this.sumbitRegistration);
-            this.Name = "LoginForm";
-            this.Text = "Form1";
+            this.Controls.Add(this.password);
+            this.Controls.Add(this.login);
+            this.Name = "RegisterAccount";
+            this.Text = "RegisterAccount";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -92,10 +91,9 @@ namespace Launcher
 
         #endregion
 
-        private System.Windows.Forms.Button sumbitRegistration;
-        private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.TextBox login;
+        private System.Windows.Forms.TextBox password;
+        private System.Windows.Forms.Button sumbitRegistration;
         private System.Windows.Forms.Button buttonCreateAccount;
     }
 }
-

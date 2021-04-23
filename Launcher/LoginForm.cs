@@ -12,28 +12,56 @@ namespace Launcher
 {
     public partial class LoginForm : Form
     {
-        private Form _mainMenu;
+        private MainMenu _mainMenu;
+        private RegisterAccount _regMenu;
+        private AccountReader _accountReader;
         public LoginForm()
         {
-            InitializeComponent();
+            _accountReader = new AccountReader();
             _mainMenu = new MainMenu(this);
+            _regMenu = new RegisterAccount(this, _accountReader);
+            InitializeComponent();
         }
         private void sumbitRegistration_Click(object sender, EventArgs e)
         {
-            Enter();
+            _accountReader.ReadAccountsJson();
+            var account = _accountReader.FindAccount(login.Text);
+            if (account is Account)
+            {
+                if (account.password.Equals(password.Text))
+                {
+                    Enter(account);
+                }
+                else
+                {
+                    MessageBox.Show($"WrongPassword");
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Account doesn't exsist");
+            }
         }
-        private void Enter()
+        private void Enter(Account account)
         {
             Hide();
+            _mainMenu.ConfirmAccount(account);
             _mainMenu.Show();
         }
-        private void login_TextChanged(object sender, EventArgs e)
+        private void password_DoubleClick(object sender, EventArgs e)
+        {
+            password.Text = string.Empty;
+        }
+
+        private void login_DoubleClick(object sender, EventArgs e)
         {
             login.Text = string.Empty;
         }
-        private void password_TextChanged(object sender, EventArgs e)
+
+        private void buttonCreateAccount_Click(object sender, EventArgs e)
         {
-            password.Text = string.Empty;
+            Hide();
+            _regMenu.Show();
         }
     }
 }
